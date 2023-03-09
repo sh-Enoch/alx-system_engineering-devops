@@ -1,0 +1,2 @@
+#!bin/bash
+ls -Ap1 | sort -d --version-sort | tr '\n' ',' && echo
