@@ -1,2 +1,2 @@
-#!bin/bash
-ls -Ap1 | sort -d --version-sort | tr '\n' ',' && echo
+#!/bin/bash
+ls ap --format=comma
