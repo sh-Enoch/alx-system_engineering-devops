@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#use while to print 'Best School.'
+#Use while to print 'Best School.'
 
-
-i = 0;
-while (i < 10);do
+i=0;
+while [ $i -lt 10 ]
+do 
 	echo "Best School"
-	i++;
+	(( i++ ))
 done
