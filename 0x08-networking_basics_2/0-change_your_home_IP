@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#COnfigures an ubuntu server.
+
+cp /etc/hosts ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
+sed -i s/^172.*$// ~/hosts.new
