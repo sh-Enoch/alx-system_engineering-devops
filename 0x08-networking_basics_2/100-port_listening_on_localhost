@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Listening port.
+
+nc -l -p 80
