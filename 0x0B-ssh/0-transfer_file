@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#transfer file from client to server
+if [$# -lt 4]; then
+	echo "Usage: $0 PATH_TO_FILE IP USERNAMENPATH_TO_SSH_KEY"
+file_path = "$1"
+ssh_key = "$4"
+username = "$3"
+host_name = "$2"
+
+export $SSH_OPTS = "-o StrictHostKeyChecking=no"
+
+scp $SSH_OPTS $file_path "$username@host_name:~/" -i "$ssh_key"
