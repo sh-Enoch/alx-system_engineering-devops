@@ -1,7 +1,12 @@
 #install puppet-lint
-exec { 'install python packages':
-  command => 'pip3 install flask==2.1.0',
-  path    => ['/usr/bin/'],
-  unless  => '/usr/bin/test -f /usr/local/lib/python3.4/dist-packages/flask/app.py',
+package { 'flask':
+    version => '2.1.0',
+    provider => 'pip3',
+}
+
+#install wekzeug package
+package { 'Werkzeug':
+    version => '2.1.1',
+    provider => 'pip3',
 }
 
