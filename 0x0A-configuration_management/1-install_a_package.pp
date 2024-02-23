@@ -1,7 +1,6 @@
 #install puppet-lint
-python::pip {
-    'flask':
-    ensure => present,
-    ensure   =>'2.1.0',
-    provider =>'pip3',
-	}
+class { 'python': }
+python::pip { 'flask':
+    version => '2.1.0'
+    provider => 'pip3'
+}
