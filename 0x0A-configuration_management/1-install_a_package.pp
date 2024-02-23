@@ -1,12 +1,12 @@
-#install puppet-lint
-package { 'flask':
-    version => '2.1.0',
+# 1-install_a_package.pp
+
+# Install the flask packages from pip3
+package { 'flask' :
+    ensure   => '2.1.0',
     provider => 'pip3',
 }
-
-#install wekzeug package
+# Install the werkzueg package
 package { 'Werkzeug':
-    version => '2.1.1',
-    provider => 'pip3',
+  ensure   => '2.2.2',
+  provider => 'pip3',
 }
-
