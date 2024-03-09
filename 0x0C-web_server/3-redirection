@@ -1,22 +1,30 @@
 #!/usr/bin/env bash
-#redirection
 
-sudo echo "events {
-
+# Nginx configuration with redirect
+cat <<EOF > /etc/nginx/nginx.conf
+events {
 }
 
 http {
-        server {
-                listen 80;
-                server_name enee.tech;
+  server {
+    listen 80;
+    server_name enee.tech;
+    root /var/www/html/;
 
-                root /var/www/html/;
+    location /redirect_me {
+      return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+  }
+}
+EOF
 
-                location /redirect_me {
-                        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-                        }
-                }
-}" > /etc/nginx/nginx.conf
-
+# Check configuration syntax
 sudo nginx -t
-sudo nginx -s reload
+
+if [ $? -eq 0 ]; then
+  # Configuration OK, reload Nginx
+  sudo chown nginx:nginx /etc/nginx/nginx.conf  # Set ownership to nginx user
+  sudo nginx -s reload
+else
+  echo "Error: Nginx configuration failed!"
+fi
