@@ -1,32 +1,22 @@
 #!/usr/bin/env bash
-#configure 301
+#redirection
 
-sudo touch /etc/nginx/sites-available/my-site.conf
+sudo echo "events {
 
-echo "grant write permission to the file."
-sudo chmod u+w /etc/nginx/sites-available/my-site.conf
+}
 
-echo "
-server {
-	listen 80;
-	server_name enee.tech;
+http {
+        server {
+                listen 80;
+                server_name enee.tech;
 
-	location /redirect_me {
-		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-		}
-	}" > /etc/nginx/sites-available/my-site.conf
+                root /var/www/html/;
 
-echo 'reveert write permission'
-sudo  chmod u-w /etc/nginx/sites-available/my-site.conf
-
-echo "create a symbolic link"
-sudo ln -s /etc/nginx/sites-available/my-site.conf /etc/nginx/sites-enabled/
-
-echo "check config"
+                location = /redirect_me {
+                        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+                        }
+                }
+}" > /etc/nginx/nginx.conf
 
 sudo nginx -t
-echo "reload system"
-
 sudo nginx -s reload
-
-echo "Nginx configuration complete with redirection to target"
