@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#create redirect_me
+
+sudo touch /var/www/html/redirect_me
+
+echo "created redirect_me"
