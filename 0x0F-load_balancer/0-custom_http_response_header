@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#configure a brand new ubuntu machine with custom header x-served-by
+
+sudo apt update
+echo "installing NGINX on new machine..."
+sudo apt install  -y nginx
+
+#create an index_file
+echo "Hello World!" | sudo tee /var/www/index.html
+
+#performing redirection
+new_string = "server_name _; \n\trewrite ^\/redirect_me https:\/\/github.com\/sh_enoch permanent;"
+
+sudo sed -i "s/server_name _;/$new_string/" etc/nginx/sites_enabled/default
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+#custom header
+sudo sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+sudo nginx -t
+sudo service nginx restart
