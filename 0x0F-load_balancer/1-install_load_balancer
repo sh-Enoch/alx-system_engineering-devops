@@ -7,4 +7,6 @@ new_string = "frontend http\n\tbind *:80\n\tdefault_backend my_backend\nbackend\
 
 echo -e "$new_string" | sudo tee -a /etc/haproxy/haproxy.cfg
 
+sudo systemctl enable haproxy
+sudo sysemctl start haproxy
 sudo systemctl restart haproxy
