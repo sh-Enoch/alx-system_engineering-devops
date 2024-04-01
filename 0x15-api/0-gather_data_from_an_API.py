@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Python script given emp_ID, returns information of TODO list progress."""
 import json
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == "__main__":
