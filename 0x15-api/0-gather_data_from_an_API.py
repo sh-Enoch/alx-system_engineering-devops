@@ -8,8 +8,8 @@ import requests
 if __name__ == "__main__":
     emp_id = argv[1]
 
-    empUrl = "https://jsonplaceholder.typicode.com/users/{}/todos"
-    .format(emp_id)
+    empUrl = ("https://jsonplaceholder.typicode.com/users/{}/todos"
+              .format(emp_id))
 
     nameUrl = "https://jsonplaceholder.typicode.com/users/{}".format(emp_id)
 
