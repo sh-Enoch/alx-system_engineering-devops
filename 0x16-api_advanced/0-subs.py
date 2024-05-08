@@ -3,8 +3,9 @@
 import json
 import requests
 
+
 def number_of_subscribers(subreddit):
-    """takes a subreddit and returns the number of subscribers."""
+    """Take a subreddit and returns the number of subscribers."""
     user_agent = {"User-Agent": "unix:0-subs.py:v1.0"}
     data = requests.get("https://www.reddit.com/r/{}/about.json"
                         .format(subreddit),
