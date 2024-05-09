@@ -2,6 +2,6 @@
 #install nginx
 
 sudo apt-get -y install nginx
-sudo echo "hello world!" > /var/www/html/index.html
+sudo echo "Hello World!" > /var/www/html/index.html
 sudo systemctl start nginx
 sudo systemctl enable nginx
