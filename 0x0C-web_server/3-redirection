@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #redirection
 
- echo "events {
+ mystring="events {
 
  }
 
@@ -16,6 +16,7 @@
 	    return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
             }
        }
-}" | sudo tee  > /etc/nginx/nginx.conf
+}" 
+echo $mystring | sudo tee  /etc/nginx/nginx.conf
 sudo nginx -t
 sudo nginx -s reload
