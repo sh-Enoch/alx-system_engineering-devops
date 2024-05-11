@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
 #redirection
 
-mystring="
-   http {
-     server {
-	    listen 80;
-            server_name enee.tech;
- 
-            root /var/www/html/;
+mystring="server-name _; \n\trewrite ^\/redirect_me https:^\/^\/www.youtube.com^\/watch?v=QH2-TGUlwu4 permanent;"
 
-            location /redirect_me {
-	    return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-            }
-       }
-}" 
-echo $mystring | sudo tee  /etc/nginx/nginx.conf
+sudo sed -i "s/server_name _;/$mystring/" /etc/nginx/sites-enabled/default
+
 sudo nginx -t
 sudo nginx -s reload
