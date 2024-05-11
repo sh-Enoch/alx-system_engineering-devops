@@ -6,5 +6,6 @@ sudo apt -y update
 sudo apt upgrade
 echo "Hello World!" |sudo tee /var/www/html/index.html
 line = 'server '
-sudo systemctl start nginx
-sudo systemctl enable nginx
+
+sudo nginx -t
+sudo nginx -s
