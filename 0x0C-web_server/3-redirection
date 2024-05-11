@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #redirection
 
-mystring="server-name _; \n\trewrite ^\/redirect_me https:^\/^\/www.youtube.com^\/watch?v=QH2-TGUlwu4 permanent;"
+mystring="server-name _; \n\trewrite ^\/redirect_me return 301 https:^\/^\/www.youtube.com^\/watch?v=QH2-TGUlwu4 permanent;"
 
 sudo sed -i "s/server_name _;/$mystring/" /etc/nginx/sites-enabled/default
 
