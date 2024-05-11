@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 #redirection
 
- mystring="events {
-
- }
-
+mystring="
    http {
      server {
 	    listen 80;
