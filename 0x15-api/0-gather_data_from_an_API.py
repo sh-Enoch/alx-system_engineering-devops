@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-A Script that, uses this REST API, for a given employee ID, returns
-information about his/her TODO list progress
-"""
+"""A Script that, uses this REST API, for a given employee ID, returns."""
+
 
 import json
 import requests
@@ -20,9 +18,9 @@ if __name__ == "__main__":
 
     json_req = employee.json()
     users = employeeName.json()
-    
+
     name = users["name"]
-    
+
     totalTasks = 0
 
     for done_tasks in json_req:
